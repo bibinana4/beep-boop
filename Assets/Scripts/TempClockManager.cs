@@ -53,4 +53,3 @@ public class DisableObject : MonoBehaviour
         canvasGroup.alpha = invisible ? 0f : 1f;
     }
 }
-}
