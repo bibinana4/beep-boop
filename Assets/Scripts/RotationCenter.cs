@@ -5,8 +5,9 @@ public class ClockArms : MonoBehaviour
     public RectTransform arm1;
     public RectTransform arm2;
 
-    public float speed1 = 90f;
-    public float speed2 = 45f;
+    public float speed1 = 3f;
+    public float speed2 = 0.05f;
+    //oneminute = 6deg
 
     void Update()
     {

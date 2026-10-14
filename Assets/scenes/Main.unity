@@ -1037,8 +1037,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   arm1: {fileID: 1798461572}
   arm2: {fileID: 1197790752}
-  speed1: 90
-  speed2: 45
+  speed1: 3
+  speed2: 0.05
 --- !u!114 &316542624
 MonoBehaviour:
   m_ObjectHideFlags: 0
