@@ -4,15 +4,16 @@ using UnityEngine.SceneManagement;
 public class PlayerSanity : MonoBehaviour
 {
     public int Sanity = 100;
+
     public int PosMult = 0;
     public HealthPos changepos;
 
     private bool isDead = false;
-
+    public OpacityOfBlack blackOverlay;
     public void TakeDamage(int SanDmg)
     {
         if (isDead) return;
-
+        blackOverlay.RevealAndSetOpacity(SanDmg);
         if (Sanity - SanDmg < 0)
         {
             // only move the bar by what we actually lost
@@ -36,7 +37,7 @@ public class PlayerSanity : MonoBehaviour
     public void HealDamage(int SanHeal)
     {
         if (isDead) return;
-
+        blackOverlay.RevealAndSetOpacity(-(SanHeal));
         if (Sanity + SanHeal > 100)
         {
             // only move the bar by what we actually gained
