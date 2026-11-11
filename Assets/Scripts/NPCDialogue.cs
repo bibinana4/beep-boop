@@ -5,6 +5,7 @@ public class NPCDialogue : MonoBehaviour
 {
     public GameObject bubble;        // the DialogueBubble panel
     public TMP_Text dialogueText;    // the DialogueText inside it
+    public GameObject prompt;        // the "Press E" text
     public string[] lines;           // what the NPC says, one line per press of E
     public float showTime = 3f;      // seconds before the bubble disappears
 
@@ -16,11 +17,16 @@ public class NPCDialogue : MonoBehaviour
     private void Start()
     {
         bubble.SetActive(false);
+        if (prompt != null) prompt.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) playerInRange = true;
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+            if (prompt != null) prompt.SetActive(true);
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -29,6 +35,7 @@ public class NPCDialogue : MonoBehaviour
         {
             playerInRange = false;
             lineIndex = 0;
+            if (prompt != null) prompt.SetActive(false);
             if (showing) Hide();
         }
     }
